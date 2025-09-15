@@ -250,7 +250,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: -0.5
-    y: 0
+    y: 0.5
     width: 1
     height: 1
   near clip plane: 0.3
@@ -386,10 +386,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5
+    x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -472,7 +472,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100112, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
       propertyPath: m_Name
-      value: Tank_Original_Model
+      value: FirstPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 100112, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
       propertyPath: m_TagString
@@ -672,6 +672,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3503f66b-7275-4b5a-96b4-4d089300e876
     m_ActionName: 'TankTurret/Shoot[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4d2d7f8-4d83-47a9-a2f6-2594e382ddc4
+    m_ActionName: SecondTankBody/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59228b56-7371-4f29-9cb0-5636e245fb0b
+    m_ActionName: SecondTankTurret/Rotate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1235c26-80a0-46d3-824a-e68bd3145e30
+    m_ActionName: SecondTankTurret/Shoot
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: TankBody
@@ -758,6 +770,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3503f66b-7275-4b5a-96b4-4d089300e876
     m_ActionName: 'TankTurret/Shoot[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4d2d7f8-4d83-47a9-a2f6-2594e382ddc4
+    m_ActionName: SecondTankBody/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59228b56-7371-4f29-9cb0-5636e245fb0b
+    m_ActionName: SecondTankTurret/Rotate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1235c26-80a0-46d3-824a-e68bd3145e30
+    m_ActionName: SecondTankTurret/Shoot
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: TankTurret

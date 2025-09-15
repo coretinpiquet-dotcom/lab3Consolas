@@ -34,7 +34,8 @@ public class EnemyHealth : MonoBehaviour
             healthSlider.transform.position = transform.position + sliderOffset;
 
             // Para que siempre mire a la cámara
-            healthSlider.transform.rotation = mainCamera.transform.rotation;
+            if (mainCamera != null)
+                healthSlider.transform.rotation = mainCamera.transform.rotation;
 
             // Si usas Canvas en Screen Space:
             // healthSlider.transform.position = mainCamera.WorldToScreenPoint(transform.position + sliderOffset);

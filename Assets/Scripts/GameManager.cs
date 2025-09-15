@@ -3,53 +3,64 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private Transform playerSpawnPoint;
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private float gameDuration = 300f;
+    [SerializeField] private SinglePlayerManager singlePlayerManager;
+    [SerializeField] private MultiPlayerManager multiPlayerManager;
+    Gameplay currentMode = Gameplay.Undefined;
+
+    private void Awake()
+    {
+        currentMode = GameSingleton.Instance.GetCurrentGameplayMode();
+        if (singlePlayerManager)
+            singlePlayerManager.DesactivateScoreText();
+        if (multiPlayerManager)
+            multiPlayerManager.DesactivateScoreTexts();
+    }
 
     private void Start()
     {
-        if (player != null && playerSpawnPoint != null)
-            Instantiate(player, playerSpawnPoint.position, playerSpawnPoint.rotation);
-        if (scoreText != null)
-            scoreText.gameObject.SetActive(false);
+        switch (currentMode)
+        {
+            case Gameplay.SinglePlayer:
+                singlePlayerManager.SinglePlayerStart();
+                break;
+            case Gameplay.MultiPlayer:
+                multiPlayerManager.MultiPlayerStart();
+                break;
+            default:
+                Debug.Log("No gameplay mode selected.");
+                break;
+        }
     }
 
     private void Update()
     {
-        if (!AreEnemiesRemaining())
+        switch (currentMode)
         {
-            if (scoreText != null)
-            {
-                scoreText.gameObject.SetActive(true);
-                scoreText.text = "You Win!";
-            }
-            Time.timeScale = 0f;
-        } else if (gameDuration <= 0f)
-        {
-            if (scoreText != null)
-            {
-                scoreText.gameObject.SetActive(true);
-                scoreText.text = "Time's Up!\nYou Lose!";
-            }
-            Time.timeScale = 0f;
+            case Gameplay.SinglePlayer:
+                singlePlayerManager.SinglePlayerUpdate();
+                break;
+            case Gameplay.MultiPlayer:
+                multiPlayerManager.MultiPlayerUpdate();
+                break;
+            default:
+                Debug.Log("No gameplay mode selected.");
+                break;
         }
     }
 
-    private bool AreEnemiesRemaining()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        return enemies.Length > 0;
-    }
-    
     private void FixedUpdate()
     {
-        if (timerText != null)
+        switch (currentMode)
         {
-            gameDuration -= Time.fixedDeltaTime;
-            timerText.text = Mathf.Max(0, Mathf.CeilToInt(gameDuration)).ToString() + "s left";
+            case Gameplay.SinglePlayer:
+                singlePlayerManager.SinglePlayerFixedUpdate();
+                break;
+            case Gameplay.MultiPlayer:
+                // multiPlayerManager.MultiPlayerFixedUpdate();
+                break;
+            default:
+                Debug.Log("No gameplay mode selected.");
+                break;
         }
     }
 }

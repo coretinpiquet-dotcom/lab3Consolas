@@ -9,6 +9,9 @@ public class SimplePlayer : MonoBehaviour
     public float rotationSpeed = 100f;
     public Transform tourelle;
     public float tourelleRotationSpeed = 100f;
+
+    [SerializeField] private int _life = 50;
+
     private Vector2 moveInput;
     private Vector2 rotateInput;
     private Rigidbody rb;
@@ -45,11 +48,29 @@ public class SimplePlayer : MonoBehaviour
     void Update()
     {
         Update2dMovement();
-        float lookX = rotateInput.x;
+
         if (tourelle != null)
         {
+            float lookX = rotateInput.x;
+            float lookY = rotateInput.y;
+
             tourelle.Rotate(Vector3.up * lookX * tourelleRotationSpeed * Time.deltaTime, Space.World);
+
+            float tiltAmount = lookY * tourelleRotationSpeed * Time.deltaTime;
+            Vector3 currentRotation = tourelle.localEulerAngles;
+            float xRotation = currentRotation.x > 180 ? currentRotation.x - 360 : currentRotation.x;
+            float desiredXRotation = Mathf.Clamp(xRotation - tiltAmount, -60f, 15f);
+            tourelle.localEulerAngles = new Vector3(desiredXRotation, currentRotation.y, currentRotation.z);
         }
     }
 
+
+    public int GetLife() {
+        return _life;
+    }
+
+    public void ModifyLife(int delta) {
+        _life += delta;
+
+    }
 }

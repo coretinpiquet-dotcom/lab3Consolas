@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Tanks/Tutorial_Demo/Demo_Scenes/Demo_Game_Moon.unity
-    guid: 7d48af2f9c7c14840abfc5e21827efaa
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: d32aef89e25910e4db8fab10232cfbc3

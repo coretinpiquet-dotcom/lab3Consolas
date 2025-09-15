@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: d235e367ce0ff9d4fa35018348dc5068
+  productGUID: a5a5b408858eaab40a6f3b2230417223
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -871,14 +871,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TankGame
+  metroPackageName: lab3Consolas
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: TankGame
+  metroApplicationDescription: lab3Consolas
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0

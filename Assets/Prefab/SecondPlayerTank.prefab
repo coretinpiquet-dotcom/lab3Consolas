@@ -249,10 +249,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.5
-    y: 0
-    width: 1
-    height: 1
+    x: 0.5
+    y: 0.5
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -389,7 +389,7 @@ Camera:
     x: 0.5
     y: 0
     width: 1
-    height: 1
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -472,7 +472,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100112, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
       propertyPath: m_Name
-      value: Tank_Original_Model
+      value: SecondPlayerTank
       objectReference: {fileID: 0}
     - target: {fileID: 100112, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
       propertyPath: m_TagString
@@ -518,6 +518,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ca10a9c6da6c054aaba65f0d4051a47, type: 2}
+    - target: {fileID: 2300002, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ca10a9c6da6c054aaba65f0d4051a47, type: 2}
+    - target: {fileID: 2300006, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ca10a9c6da6c054aaba65f0d4051a47, type: 2}
+    - target: {fileID: 2300008, guid: 002e2a607f5b64c48be0b3b0d8b8bfdd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ca10a9c6da6c054aaba65f0d4051a47, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -672,9 +688,33 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3503f66b-7275-4b5a-96b4-4d089300e876
     m_ActionName: 'TankTurret/Shoot[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 747765563530074092}
+        m_TargetAssemblyTypeName: SimplePlayer, Assembly-CSharp
+        m_MethodName: onMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e4d2d7f8-4d83-47a9-a2f6-2594e382ddc4
+    m_ActionName: SecondTankBody/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59228b56-7371-4f29-9cb0-5636e245fb0b
+    m_ActionName: SecondTankTurret/Rotate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1235c26-80a0-46d3-824a-e68bd3145e30
+    m_ActionName: SecondTankTurret/Shoot
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: TankBody
+  m_DefaultActionMap: SecondTankBody
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &4322753124790744262
@@ -727,6 +767,18 @@ MonoBehaviour:
     m_ActionId: 31e6f3f1-d2be-4304-b839-39519cf8e4f0
     m_ActionName: TankBody/Move
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00de3b1f-bcee-41cd-b0ea-9b26fba7257c
+    m_ActionName: TankTurret/Rotate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3503f66b-7275-4b5a-96b4-4d089300e876
+    m_ActionName: 'TankTurret/Shoot[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4d2d7f8-4d83-47a9-a2f6-2594e382ddc4
+    m_ActionName: SecondTankBody/Move
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 747765563530074092}
         m_TargetAssemblyTypeName: SimplePlayer, Assembly-CSharp
@@ -740,8 +792,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 00de3b1f-bcee-41cd-b0ea-9b26fba7257c
-    m_ActionName: TankTurret/Rotate
+    m_ActionId: 59228b56-7371-4f29-9cb0-5636e245fb0b
+    m_ActionName: SecondTankTurret/Rotate
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4322753124790744262}
@@ -756,11 +808,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3503f66b-7275-4b5a-96b4-4d089300e876
-    m_ActionName: 'TankTurret/Shoot[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]'
+    m_ActionId: f1235c26-80a0-46d3-824a-e68bd3145e30
+    m_ActionName: SecondTankTurret/Shoot
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: TankTurret
+  m_DefaultActionMap: SecondTankTurret
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &908348167154480833 stripped

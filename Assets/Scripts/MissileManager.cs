@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class MissileManager : MonoBehaviour
 {
-    [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _impulseForce = 20f;
     [SerializeField] private float _lifetime = 5f;
     [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] private int _missileDamage = 10;
+
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * _impulseForce, ForceMode.Impulse);
+    }
 
     private void Update()
     {
-        MoveMissile();
         CheckLifetime();
-    }
 
-    private void MoveMissile()
-    {
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+        if (rb.linearVelocity.sqrMagnitude > 0.01f) {
+            transform.rotation = Quaternion.LookRotation(rb.linearVelocity);
+        }
     }
 
     private void CheckLifetime()
@@ -28,14 +35,25 @@ public class MissileManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_lifetime > 4.9f)
+            return;
         if (other.CompareTag("Enemy"))
         {
             Explode();
-            Destroy(other.gameObject);
+            print("Enemy got Shot by player");
+            other.gameObject.GetComponent<EnemyController>().ModifyLife(-1 * _missileDamage);
         }
-        else if (!other.CompareTag("Player"))
+        else if (other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<SimplePlayer>().ModifyLife(-1 * _missileDamage);
+            Explode();
+        }
+        else if (!other.CompareTag("Missile"))
         {
             Explode();
+            if (!other.CompareTag("Non-Destructible")) {
+                Destroy(other.gameObject);
+            }
         }
     }
 
@@ -45,6 +63,7 @@ public class MissileManager : MonoBehaviour
         {
             var explosion = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
             explosion.Play();
+            Destroy(explosion.gameObject, explosion.main.duration);
         }
         Destroy(gameObject);
     }
