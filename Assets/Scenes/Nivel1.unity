@@ -2119,7 +2119,7 @@ GameObject:
   - component: {fileID: 247228917}
   m_Layer: 0
   m_Name: Ancient City
-  m_TagString: Untagged
+  m_TagString: Non-Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9122,7 +9122,7 @@ GameObject:
   - component: {fileID: 1291573308}
   m_Layer: 0
   m_Name: Cliffs
-  m_TagString: Untagged
+  m_TagString: Non-Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9615,7 +9615,7 @@ GameObject:
   - component: {fileID: 1381674677}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Non-Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13104,7 +13104,7 @@ GameObject:
   - component: {fileID: 1982794824}
   m_Layer: 0
   m_Name: MilitaryBase
-  m_TagString: Untagged
+  m_TagString: Non-Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

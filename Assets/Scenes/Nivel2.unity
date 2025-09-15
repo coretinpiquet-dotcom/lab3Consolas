@@ -631,6 +631,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelDesert
       objectReference: {fileID: 0}
+    - target: {fileID: 354036346324136275, guid: a47bbcd379a3bc448a1a2ff78c0b287a, type: 3}
+      propertyPath: m_TagString
+      value: Non-Destructible
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787641139867310316, guid: a47bbcd379a3bc448a1a2ff78c0b287a, type: 3}
+      propertyPath: m_TagString
+      value: Non-Destructible
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044419739777954413, guid: a47bbcd379a3bc448a1a2ff78c0b287a, type: 3}
+      propertyPath: m_TagString
+      value: Non-Destructible
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584490204771234998, guid: a47bbcd379a3bc448a1a2ff78c0b287a, type: 3}
+      propertyPath: m_TagString
+      value: Non-Destructible
+      objectReference: {fileID: 0}
     - target: {fileID: 8293719742699698646, guid: a47bbcd379a3bc448a1a2ff78c0b287a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
