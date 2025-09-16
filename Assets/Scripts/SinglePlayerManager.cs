@@ -12,7 +12,7 @@ public class SinglePlayerManager : MonoBehaviour
     public void SinglePlayerStart()
     {
         if (player != null && playerSpawnPoint != null)
-            Instantiate(player, playerSpawnPoint.position, playerSpawnPoint.rotation);
+            player = Instantiate(player, playerSpawnPoint.position, playerSpawnPoint.rotation);
         DesactivateScoreText();
     }
 
@@ -61,7 +61,7 @@ public class SinglePlayerManager : MonoBehaviour
 
     private bool isGameLost()
     {
-        return gameDuration <= 0f;
+        return gameDuration <= 0f || (player != null && player.GetComponent<SimplePlayer>().GetLife() <= 0);
     }
 
     private bool AreEnemiesRemaining()

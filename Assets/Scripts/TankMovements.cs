@@ -12,6 +12,7 @@ public class SimplePlayer : MonoBehaviour
     public float tourelleRotationSpeed = 100f;
 
     [SerializeField] private int _life = 50;
+    [SerializeField] private HealthBar healthBar;
 
     private Vector2 moveInput;
     private Vector2 rotateInput;
@@ -20,6 +21,10 @@ public class SimplePlayer : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        if (healthBar != null)
+        {
+            healthBar.SetBaseHealth(_life);
+        }
     }
 
     public void onMove(InputAction.CallbackContext context)
@@ -73,5 +78,7 @@ public class SimplePlayer : MonoBehaviour
     public void ModifyLife(int delta)
     {
         _life += delta;
+        if (healthBar != null)
+            healthBar.SetHealth(_life);
     }
 }
