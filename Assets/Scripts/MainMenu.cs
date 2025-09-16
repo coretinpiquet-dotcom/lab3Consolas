@@ -26,7 +26,8 @@ public class MainMenu : MonoBehaviour
 
         foreach (var menu in LevelMenu)
             menu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(mainMenu[0]);
+        if (mainMenu.Length > 0)
+            EventSystem.current.SetSelectedGameObject(mainMenu[0]);
     }
 
     public void ShowGameplayMenu()
@@ -40,7 +41,8 @@ public class MainMenu : MonoBehaviour
 
         foreach (var menu in LevelMenu)
             menu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(gameplayMenu[0]);
+        if (gameplayMenu.Length > 0)
+            EventSystem.current.SetSelectedGameObject(gameplayMenu[0]);
     }
 
     public void ShowLevelMenu()
@@ -54,7 +56,8 @@ public class MainMenu : MonoBehaviour
 
         foreach (var menu in LevelMenu)
             menu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(LevelMenu[0]);
+        if (LevelMenu.Length > 0)
+            EventSystem.current.SetSelectedGameObject(LevelMenu[0]);
     }
 
     public void GoPreviousMenu()

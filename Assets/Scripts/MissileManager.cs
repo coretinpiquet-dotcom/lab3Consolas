@@ -51,7 +51,7 @@ public class MissileManager : MonoBehaviour
         else if (!other.CompareTag("Missile"))
         {
             Explode();
-            if (!other.CompareTag("Non-Destructible")) {
+            if (other.CompareTag("Destructible")) {
                 Destroy(other.gameObject);
             }
         }

@@ -25,7 +25,7 @@ public class MultiPlayerManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i] != null && playerSpawnPoint[i] != null)
-                Instantiate(players[i], playerSpawnPoint[i].position, playerSpawnPoint[i].rotation);
+                players[i] = Instantiate(players[i], playerSpawnPoint[i].position, playerSpawnPoint[i].rotation);
         }
         DesactivateScoreTexts();
     }

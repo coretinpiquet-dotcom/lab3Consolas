@@ -5,11 +5,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private SinglePlayerManager singlePlayerManager;
     [SerializeField] private MultiPlayerManager multiPlayerManager;
+    [SerializeField] private GameObject enemySpawner;
     Gameplay currentMode = Gameplay.Undefined;
 
     private void Awake()
     {
         currentMode = GameSingleton.Instance.GetCurrentGameplayMode();
+        Debug.Log("Current gameplay mode: " + currentMode);
         if (singlePlayerManager)
             singlePlayerManager.DesactivateScoreText();
         if (multiPlayerManager)
@@ -18,12 +20,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Awake();
+        Debug.Log("Starting game in mode: " + currentMode);
         switch (currentMode)
         {
             case Gameplay.SinglePlayer:
                 singlePlayerManager.SinglePlayerStart();
+                if (enemySpawner)
+                    enemySpawner.SetActive(true);
                 break;
             case Gameplay.MultiPlayer:
+                if (enemySpawner)
+                    enemySpawner.SetActive(false);
                 multiPlayerManager.MultiPlayerStart();
                 break;
             default:

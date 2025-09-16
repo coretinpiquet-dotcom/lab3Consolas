@@ -1,3 +1,4 @@
+using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -64,13 +65,13 @@ public class SimplePlayer : MonoBehaviour
         }
     }
 
-
-    public int GetLife() {
+    public int GetLife()
+    {
         return _life;
     }
 
-    public void ModifyLife(int delta) {
+    public void ModifyLife(int delta)
+    {
         _life += delta;
-
     }
 }
